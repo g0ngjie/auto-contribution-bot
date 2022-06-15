@@ -14,6 +14,8 @@
 # 是否新增文件，默认为false
 # 非新增，则在执行文件中添加新的行
 new_file = false
+# 文件类型，默认为 md （值需要设置目标文件的后缀名）
+file_type = "md"
 # 内容来源
 # 可选值：0：默认读取new_content 1：一言
 content_from = 1
