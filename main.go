@@ -5,6 +5,5 @@ import (
 )
 
 func main() {
-	lib.Welcome()
 	lib.BotRun()
 }

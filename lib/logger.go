@@ -1,17 +1,12 @@
 package lib
 
 import (
-	"fmt"
 	"time"
 
 	nested "github.com/antonfisher/nested-logrus-formatter"
 	"github.com/sirupsen/logrus"
 	"gopkg.in/natefinch/lumberjack.v2"
 )
-
-func Welcome() {
-	fmt.Println("Welcome to the bot!")
-}
 
 // 配置一个日志输出
 type AppHook struct {
