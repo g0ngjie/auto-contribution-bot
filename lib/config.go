@@ -16,6 +16,7 @@ type Config struct {
 	GitUrl      string `toml:"git_url"`      // git地址
 	GitUser     string `toml:"git_user"`     // git用户名
 	GitPass     string `toml:"git_pass"`     // git密码
+	GitEmail    string `toml:"git_email"`    // git邮箱
 }
 
 var Cfg Config

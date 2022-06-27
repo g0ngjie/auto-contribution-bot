@@ -85,8 +85,9 @@ func gitCommit(w *git.Worktree) {
 	// Info("git commit -m \"example go-git commit\"")
 	_, err = w.Commit("update", &git.CommitOptions{
 		Author: &object.Signature{
-			Name: "bot",
-			When: time.Now(),
+			Name:  "bot",
+			Email: Cfg.GitEmail,
+			When:  time.Now(),
 		},
 	})
 

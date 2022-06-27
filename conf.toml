@@ -15,3 +15,6 @@ git_url = "https://gitee.com/g0ngjie/test-auto-contribution-bot.git"
 git_user = "<username>"
 # git仓库登录密码
 git_pass = "<password>"
+# git邮箱，如果登录用户名为邮箱登录，则一致
+# 邮箱如果不填写，贡献度将无法更新
+git_email = "<email>"
