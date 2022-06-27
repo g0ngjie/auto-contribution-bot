@@ -42,9 +42,9 @@ git_email = "<email>"
 这里以 window 的**任务计划程序**为例
 
 1. 将我们**可执行文件** 以及 **配置文件** 放到指定目录下
-   ![window_dir](/assets/window_dir.png)
+   ![window_dir](assets/window_dir.png)
 
 2. 创建基本任务
 
    > 依次填写需要的配置的参数，以及触发条件。当然触发条件也可以设置多个。这样你的代码仓库就会自动更新。
-   > ![task](/assets/task.png)
+   > ![task](assets/task.png)
