@@ -1,14 +1,18 @@
 # 一个自动更新贡献度的机器人
 
-:alembic: 此项目纯属自娱自乐，目前还处于实验阶段
+:alembic: 此项目纯属自娱自乐
+
+通过预设的代码仓库，定期自动化提交 commit，来达到个人贡献度的更新。
+
+## 使用方式
 
 通过定时任务方式，可用在 Nas、软路由、服务器或者个人 PC 上
 
-[文件下载](https://github.com/g0ngjie/auto-contribution-bot/releases/tag/v1.0.0)
+[执行文件下载](https://github.com/g0ngjie/auto-contribution-bot/releases/tag/v1.0.0)
 
 ## conf.toml
 
-与执行文件放到同级目录下
+> 配置文件，与执行文件放到同级目录下
 
 ```toml
 # 是否新增文件，默认为false
@@ -32,3 +36,15 @@ git_pass = "<password>"
 # 邮箱如果不填写，贡献度将无法更新
 git_email = "<email>"
 ```
+
+## window 计划任务
+
+这里以 window 的**任务计划程序**为例
+
+1. 将我们**可执行文件** 以及 **配置文件** 放到指定目录下
+   ![window_dir](/assets/window_dir.png)
+
+2. 创建基本任务
+
+   > 依次填写需要的配置的参数，以及触发条件。当然触发条件也可以设置多个。这样你的代码仓库就会自动更新。
+   > ![task](/assets/task.png)
