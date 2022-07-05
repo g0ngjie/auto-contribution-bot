@@ -2,11 +2,11 @@
 
 :alembic: 此项目纯属自娱自乐
 
-通过预设的代码仓库，定期自动化提交 commit，来达到个人贡献度的更新。
+无需Git环境，通过预设的代码仓库，定期自动化提交 commit，来达到个人贡献度的更新。
 
 ## 使用方式
 
-通过定时任务方式，可用在 Nas、软路由、服务器或者个人 PC 上
+通过定时任务方式，可用在 Nas、软路由、服务器或者个人 PC 等任意有网的设备上使用
 
 [执行文件下载](https://github.com/g0ngjie/auto-contribution-bot/releases/tag/v1.0.0)
 
