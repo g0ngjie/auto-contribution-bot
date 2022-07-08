@@ -58,3 +58,11 @@ git_email = "<email>"
    > 依次填写需要的配置的参数，以及触发条件。这样你的代码仓库就会按照预期计划自动更新。
 
    ![task](assets/task.png)
+
+## Nas 计划任务
+
+> 通过系统自带的计划任务，执行二进制文件
+
+![nas_task](assets/nas_task.png)
+
+![nas_task_set](assets/nas_task_set.png)
