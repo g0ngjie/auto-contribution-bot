@@ -24,7 +24,7 @@ func getFmtDate() string {
 }
 
 // 写入内容
-func writeFile(writeDir string) {
+func writeFile(writeDir string) *string {
 	filePath := fmt.Sprintf("%s/%s.%s", writeDir, fileName, Cfg.FileType)
 	var (
 		file *os.File
@@ -56,21 +56,32 @@ func writeFile(writeDir string) {
 	//写入文件时，使用带缓存的 *Writer
 	write := bufio.NewWriter(file)
 
+	var content string
 	// 内容来源
 	switch Cfg.ContentFrom {
 	case 0:
-		content := fmt.Sprintf("\n%s\n", Cfg.NewContent)
+		content = fmt.Sprintf("\n%s\n", Cfg.NewContent)
 		write.WriteString(content)
 		logrus.Infof("内容：%s", Cfg.NewContent)
 	case 1:
-		content := api.GetHitokoto()
-		if content != nil {
-			write.WriteString(fmt.Sprintf("\n### %s\n", content.Creator))
-			write.WriteString(fmt.Sprintf("%s\n", content.Hitokoto))
-			logrus.Infof("内容：%s", content.Hitokoto)
+		contentBody := api.GetHitokoto()
+		if contentBody != nil {
+			content = fmt.Sprintf("\n%s\n", contentBody.Hitokoto)
+			write.WriteString(fmt.Sprintf("\n### %s\n", contentBody.Creator))
+			write.WriteString(fmt.Sprintf("%s\n", contentBody.Hitokoto))
+			logrus.Infof("内容：%s", contentBody.Hitokoto)
 		}
+		content = contentBody.Hitokoto
 	}
 
 	//Flush将缓存的文件真正写入到文件中
 	write.Flush()
+
+	// 如果content内容过长，则截取 + ...
+	// 最长限制在30字符
+	var maxLen int = 30
+	if len(content) > maxLen {
+		content = content[:maxLen] + "..."
+	}
+	return &content
 }

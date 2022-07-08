@@ -62,7 +62,7 @@ func gitPull(directory string) (*git.Worktree, *git.Repository) {
 }
 
 // git commit
-func gitCommit(w *git.Worktree) {
+func gitCommit(w *git.Worktree, content *string) {
 	// Adds the new file to the staging area.
 	// Info("git add example-git-file")
 	_, err := w.Add(".")
@@ -83,7 +83,7 @@ func gitCommit(w *git.Worktree) {
 	// just created. We should provide the object.Signature of Author of the
 	// commit.
 	// Info("git commit -m \"example go-git commit\"")
-	_, err = w.Commit("update", &git.CommitOptions{
+	_, err = w.Commit(*content, &git.CommitOptions{
 		Author: &object.Signature{
 			Name:  "bot",
 			Email: Cfg.GitEmail,
@@ -119,9 +119,9 @@ func BotRun() {
 	gitClone()
 	worktree, repository := gitPull(directory)
 	// 写文件
-	writeFile(GitDir)
+	content := writeFile(GitDir)
 	// 提交
-	gitCommit(worktree)
+	gitCommit(worktree, content)
 	// 推送
 	gitPush(repository)
 
