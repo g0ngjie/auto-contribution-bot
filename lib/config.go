@@ -19,11 +19,14 @@ type Config struct {
 	GitEmail    string `toml:"git_email"`    // git邮箱
 }
 
-var Cfg Config
+var (
+	Cfg      Config
+	tomlPath string
+)
 
 func init() {
-	_, err := toml.DecodeFile("conf.toml", &Cfg)
-	if err != nil {
+	FlagArgs()
+	if _, err := toml.DecodeFile(tomlPath, &Cfg); err != nil {
 		log.Fatal(err)
 	}
 	if Cfg.NewContent == "" {

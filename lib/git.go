@@ -11,18 +11,16 @@ import (
 	"gopkg.in/src-d/go-git.v4/plumbing/transport/http"
 )
 
-const (
-	// 本地仓库目录
-	GitDir = "git-repo"
-)
+// 本地仓库目录
+var gitDir = "git-repo"
 
 // git clone
 func gitClone() {
 	// 判断本地是否存在git仓库
 	// 如果不存在则拉取
-	if _, err := os.Stat(GitDir); os.IsNotExist(err) {
+	if _, err := os.Stat(gitDir); os.IsNotExist(err) {
 		// 获取当前项目根路径
-		url, directory, username, password := Cfg.GitUrl, GitDir, Cfg.GitUser, Cfg.GitPass
+		url, directory, username, password := Cfg.GitUrl, gitDir, Cfg.GitUser, Cfg.GitPass
 
 		_, err := git.PlainClone(directory, false, &git.CloneOptions{
 			Auth: &http.BasicAuth{
@@ -114,12 +112,12 @@ func gitPush(r *git.Repository) {
 func BotRun() {
 	// 获取当前项目根路径
 	rootPath, _ := os.Getwd()
-	directory := filepath.Join(rootPath, GitDir)
+	directory := filepath.Join(rootPath, gitDir)
 	// 仓库初始化
 	gitClone()
 	worktree, repository := gitPull(directory)
 	// 写文件
-	content := writeFile(GitDir)
+	content := writeFile(gitDir)
 	// 提交
 	gitCommit(worktree, content)
 	// 推送

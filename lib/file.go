@@ -67,7 +67,7 @@ func writeFile(writeDir string) *string {
 		contentBody := api.GetHitokoto()
 		if contentBody != nil {
 			content = fmt.Sprintf("\n%s\n", contentBody.Hitokoto)
-			write.WriteString(fmt.Sprintf("\n### %s\n", contentBody.Creator))
+			write.WriteString(fmt.Sprintf("\n#### %s\n", contentBody.Fromwho))
 			write.WriteString(fmt.Sprintf("%s\n", contentBody.Hitokoto))
 			logrus.Infof("内容：%s", contentBody.Hitokoto)
 		}
