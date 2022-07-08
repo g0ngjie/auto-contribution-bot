@@ -1,7 +1,7 @@
 #/bin/bash
 
 # 版本号
-VERSION=1.0.1
+VERSION=1.0.2
 
 # windows
 CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o bot-amd64-${VERSION}.exe main.go
