@@ -46,7 +46,7 @@ git_pass = "<password>"
 git_email = "<email>"
 ```
 
-## window 计划任务
+## Window 计划任务
 
 这里以 window 的**任务计划程序**为例
 
