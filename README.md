@@ -4,6 +4,8 @@
 
 无需 Git 环境，通过预设的代码仓库，定期自动化提交 commit，来达到个人贡献度的更新。
 
+**Github** 无需这么麻烦，只需要使用自带的 **workflow**，推荐 [github-contribution-graph-action](https://github.com/bcanseco/github-contribution-graph-action)
+
 ## 使用方式
 
 ```shell
